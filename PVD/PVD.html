@@ -1,0 +1,1188 @@
+<!DOCTYPE html>
+<html class="fontawesome-i2svg-active fontawesome-i2svg-complete">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="description" content="PVD: Plenoptic Voxels Decomposition of Shape and Reﬂectance under Unknown Illuminations">
+    <meta name="keywords" content="PVD: Plenoptic Voxels Decomposition of Shape and Reﬂectance under Unknown Illuminations">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PVD</title>
+
+    <!-- Bootstrap -->
+    <style type="text/css">
+        svg:not(:root) .svg-inline--fa {
+            overflow: visible
+        }
+
+        .svg-inline--fa {
+            display: inline-block;
+            font-size: inherit;
+            height: 1em;
+            overflow: visible;
+            vertical-align: -.125em
+        }
+
+        .svg-inline--fa.fa-lg {
+            vertical-align: -.225em
+        }
+
+        .svg-inline--fa.fa-w-1 {
+            width: .0625em
+        }
+
+        .svg-inline--fa.fa-w-2 {
+            width: .125em
+        }
+
+        .svg-inline--fa.fa-w-3 {
+            width: .1875em
+        }
+
+        .svg-inline--fa.fa-w-4 {
+            width: .25em
+        }
+
+        .svg-inline--fa.fa-w-5 {
+            width: .3125em
+        }
+
+        .svg-inline--fa.fa-w-6 {
+            width: .375em
+        }
+
+        .svg-inline--fa.fa-w-7 {
+            width: .4375em
+        }
+
+        .svg-inline--fa.fa-w-8 {
+            width: .5em
+        }
+
+        .svg-inline--fa.fa-w-9 {
+            width: .5625em
+        }
+
+        .svg-inline--fa.fa-w-10 {
+            width: .625em
+        }
+
+        .svg-inline--fa.fa-w-11 {
+            width: .6875em
+        }
+
+        .svg-inline--fa.fa-w-12 {
+            width: .75em
+        }
+
+        .svg-inline--fa.fa-w-13 {
+            width: .8125em
+        }
+
+        .svg-inline--fa.fa-w-14 {
+            width: .875em
+        }
+
+        .svg-inline--fa.fa-w-15 {
+            width: .9375em
+        }
+
+        .svg-inline--fa.fa-w-16 {
+            width: 1em
+        }
+
+        .svg-inline--fa.fa-w-17 {
+            width: 1.0625em
+        }
+
+        .svg-inline--fa.fa-w-18 {
+            width: 1.125em
+        }
+
+        .svg-inline--fa.fa-w-19 {
+            width: 1.1875em
+        }
+
+        .svg-inline--fa.fa-w-20 {
+            width: 1.25em
+        }
+
+        .svg-inline--fa.fa-pull-left {
+            margin-right: .3em;
+            width: auto
+        }
+
+        .svg-inline--fa.fa-pull-right {
+            margin-left: .3em;
+            width: auto
+        }
+
+        .svg-inline--fa.fa-border {
+            height: 1.5em
+        }
+
+        .svg-inline--fa.fa-li {
+            width: 2em
+        }
+
+        .svg-inline--fa.fa-fw {
+            width: 1.25em
+        }
+
+        .fa-layers svg.svg-inline--fa {
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0
+        }
+
+        .fa-layers {
+            display: inline-block;
+            height: 1em;
+            position: relative;
+            text-align: center;
+            vertical-align: -.125em;
+            width: 1em
+        }
+
+        .fa-layers svg.svg-inline--fa {
+            -webkit-transform-origin: center center;
+            transform-origin: center center
+        }
+
+        .fa-layers-counter,
+        .fa-layers-text {
+            display: inline-block;
+            position: absolute;
+            text-align: center
+        }
+
+        .fa-layers-text {
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            -webkit-transform-origin: center center;
+            transform-origin: center center
+        }
+
+        .fa-layers-counter {
+            background-color: #ff253a;
+            border-radius: 1em;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            color: #fff;
+            height: 1.5em;
+            line-height: 1;
+            max-width: 5em;
+            min-width: 1.5em;
+            overflow: hidden;
+            padding: .25em;
+            right: 0;
+            text-overflow: ellipsis;
+            top: 0;
+            -webkit-transform: scale(.25);
+            transform: scale(.25);
+            -webkit-transform-origin: top right;
+            transform-origin: top right
+        }
+
+        .fa-layers-bottom-right {
+            bottom: 0;
+            right: 0;
+            top: auto;
+            -webkit-transform: scale(.25);
+            transform: scale(.25);
+            -webkit-transform-origin: bottom right;
+            transform-origin: bottom right
+        }
+
+        .fa-layers-bottom-left {
+            bottom: 0;
+            left: 0;
+            right: auto;
+            top: auto;
+            -webkit-transform: scale(.25);
+            transform: scale(.25);
+            -webkit-transform-origin: bottom left;
+            transform-origin: bottom left
+        }
+
+        .fa-layers-top-right {
+            right: 0;
+            top: 0;
+            -webkit-transform: scale(.25);
+            transform: scale(.25);
+            -webkit-transform-origin: top right;
+            transform-origin: top right
+        }
+
+        .fa-layers-top-left {
+            left: 0;
+            right: auto;
+            top: 0;
+            -webkit-transform: scale(.25);
+            transform: scale(.25);
+            -webkit-transform-origin: top left;
+            transform-origin: top left
+        }
+
+        .fa-lg {
+            font-size: 1.3333333333em;
+            line-height: .75em;
+            vertical-align: -.0667em
+        }
+
+        .fa-xs {
+            font-size: .75em
+        }
+
+        .fa-sm {
+            font-size: .875em
+        }
+
+        .fa-1x {
+            font-size: 1em
+        }
+
+        .fa-2x {
+            font-size: 2em
+        }
+
+        .fa-3x {
+            font-size: 3em
+        }
+
+        .fa-4x {
+            font-size: 4em
+        }
+
+        .fa-5x {
+            font-size: 5em
+        }
+
+        .fa-6x {
+            font-size: 6em
+        }
+
+        .fa-7x {
+            font-size: 7em
+        }
+
+        .fa-8x {
+            font-size: 8em
+        }
+
+        .fa-9x {
+            font-size: 9em
+        }
+
+        .fa-10x {
+            font-size: 10em
+        }
+
+        .fa-fw {
+            text-align: center;
+            width: 1.25em
+        }
+
+        .fa-ul {
+            list-style-type: none;
+            margin-left: 2.5em;
+            padding-left: 0
+        }
+
+        .fa-ul>li {
+            position: relative
+        }
+
+        .fa-li {
+            left: -2em;
+            position: absolute;
+            text-align: center;
+            width: 2em;
+            line-height: inherit
+        }
+
+        .fa-border {
+            border: solid .08em #eee;
+            border-radius: .1em;
+            padding: .2em .25em .15em
+        }
+
+        .fa-pull-left {
+            float: left
+        }
+
+        .fa-pull-right {
+            float: right
+        }
+
+        .fa.fa-pull-left,
+        .fab.fa-pull-left,
+        .fal.fa-pull-left,
+        .far.fa-pull-left,
+        .fas.fa-pull-left {
+            margin-right: .3em
+        }
+
+        .fa.fa-pull-right,
+        .fab.fa-pull-right,
+        .fal.fa-pull-right,
+        .far.fa-pull-right,
+        .fas.fa-pull-right {
+            margin-left: .3em
+        }
+
+        .fa-spin {
+            -webkit-animation: fa-spin 2s infinite linear;
+            animation: fa-spin 2s infinite linear
+        }
+
+        .fa-pulse {
+            -webkit-animation: fa-spin 1s infinite steps(8);
+            animation: fa-spin 1s infinite steps(8)
+        }
+
+        @-webkit-keyframes fa-spin {
+            0% {
+                -webkit-transform: rotate(0);
+                transform: rotate(0)
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+
+        @keyframes fa-spin {
+            0% {
+                -webkit-transform: rotate(0);
+                transform: rotate(0)
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg)
+            }
+        }
+
+        .fa-rotate-90 {
+            -webkit-transform: rotate(90deg);
+            transform: rotate(90deg)
+        }
+
+        .fa-rotate-180 {
+            -webkit-transform: rotate(180deg);
+            transform: rotate(180deg)
+        }
+
+        .fa-rotate-270 {
+            -webkit-transform: rotate(270deg);
+            transform: rotate(270deg)
+        }
+
+        .fa-flip-horizontal {
+            -webkit-transform: scale(-1, 1);
+            transform: scale(-1, 1)
+        }
+
+        .fa-flip-vertical {
+            -webkit-transform: scale(1, -1);
+            transform: scale(1, -1)
+        }
+
+        .fa-flip-both,
+        .fa-flip-horizontal.fa-flip-vertical {
+            -webkit-transform: scale(-1, -1);
+            transform: scale(-1, -1)
+        }
+
+        :root .fa-flip-both,
+        :root .fa-flip-horizontal,
+        :root .fa-flip-vertical,
+        :root .fa-rotate-180,
+        :root .fa-rotate-270,
+        :root .fa-rotate-90 {
+            -webkit-filter: none;
+            filter: none
+        }
+
+        .fa-stack {
+            display: inline-block;
+            height: 2em;
+            position: relative;
+            width: 2.5em
+        }
+
+        .fa-stack-1x,
+        .fa-stack-2x {
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            top: 0
+        }
+
+        .svg-inline--fa.fa-stack-1x {
+            height: 1em;
+            width: 1.25em
+        }
+
+        .svg-inline--fa.fa-stack-2x {
+            height: 2em;
+            width: 2.5em
+        }
+
+        .fa-inverse {
+            color: #fff
+        }
+
+        .sr-only {
+            border: 0;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px
+        }
+
+        .sr-only-focusable:active,
+        .sr-only-focusable:focus {
+            clip: auto;
+            height: auto;
+            margin: 0;
+            overflow: visible;
+            position: static;
+            width: auto
+        }
+
+        .svg-inline--fa .fa-primary {
+            fill: var(--fa-primary-color, currentColor);
+            opacity: 1;
+            opacity: var(--fa-primary-opacity, 1)
+        }
+
+        .svg-inline--fa .fa-secondary {
+            fill: var(--fa-secondary-color, currentColor);
+            opacity: .4;
+            opacity: var(--fa-secondary-opacity, .4)
+        }
+
+        .svg-inline--fa.fa-swap-opacity .fa-primary {
+            opacity: .4;
+            opacity: var(--fa-secondary-opacity, .4)
+        }
+
+        .svg-inline--fa.fa-swap-opacity .fa-secondary {
+            opacity: 1;
+            opacity: var(--fa-primary-opacity, 1)
+        }
+
+        .svg-inline--fa mask .fa-primary,
+        .svg-inline--fa mask .fa-secondary {
+            fill: #000
+        }
+
+        .fad.fa-inverse {
+            color: #fff
+        }
+    </style>
+    <link rel="stylesheet" href="./PVD_files/bootstrap-4.4.1.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="./PVD_files/js"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-PYVRSFMDRL');
+    </script>
+
+
+
+    <link href="./PVD_files/css" rel="stylesheet">
+
+
+
+
+    <link rel="stylesheet" href="./PVD_files/bulma.min.css">
+    <link rel="stylesheet" href="./PVD_files/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./PVD_files/bulma-slider.min.css">
+    <link rel="stylesheet" href="./PVD_files/fontawesome.all.min.css">
+    <link rel="stylesheet" href="./PVD_files/academicons.min.css">
+    <link rel="stylesheet" href="./PVD_files/index.css">
+    <link rel="icon" href="https://niujinshuchong.github.io/mip-splatting/static/images/72.png">
+
+
+
+    <script src="./PVD_files/jquery.min.js.下载"></script>
+    <script defer="" src="./PVD_files/fontawesome.all.min.js.下载"></script>
+    <script src="./PVD_files/bulma-carousel.min.js.下载"></script>
+    <script src="./PVD_files/bulma-slider.min.js.下载"></script>
+    <script src="./PVD_files/index.js.下载"></script>
+    <script src="./PVD_files/app.js.下载"></script>
+    <script src="./PVD_files/video_comparison.js.下载"></script>
+
+    <link rel="stylesheet" href="./PVD_files/dics.original.css">
+    <script src="./PVD_files/event_handler.js.下载"></script>
+    <script src="./PVD_files/dics.original.js.下载"></script>
+    <script>
+        function openDemo(demoName) {
+            window.location = 'https://niujinshuchong.github.io/mip-splatting-demo/' + demoName + '.html';
+        }
+    </script>
+
+</head>
+
+<body>
+
+
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container is-max-desktop">
+                <div class="columns is-centered">
+                    <div class="column has-text-centered">
+                        <h1 class="title is-1 publication-title" style="margin-bottom: 0"><strong>Mip-Splatting</strong>
+                        </h1>
+                        <h2 class="title is-2 publication-title" style="margin-top: 0; margin-bottom: 0">Alias-free 3D
+                            Gaussian
+                            Splatting</h2>
+                        <br>
+                        <h2 class="title is-4" style="margin-top: 0; margin-bottom: 0">CVPR 2024 (Oral, Best Student
+                            Paper)</h2>
+                        <br>
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block">
+                                <a href="https://niujinshuchong.github.io/">Zehao
+                                    Yu</a><sup>1,2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">
+                                <a href="https://apchenstu.github.io/">Anpei
+                                    Chen</a><sup>1,2</sup></span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">
+                                <a href="https://github.com/hbb1">Binbin Huang</a><sup>3</sup>
+                            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">
+                                <a href="https://tsattler.github.io/">Torsten Sattler</a><sup>4</sup>
+                            </span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block">
+                                <a href="http://www.cvlibs.net/">Andreas Geiger</a><sup>1,2</sup>
+                            </span>
+                        </div>
+
+                        <div class="is-size-5 publication-authors">
+                            <span class="author-block"><sup>1</sup>University of Tübingen</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block"><sup>2</sup>Tübingen AI Center</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <br>
+                            <span class="author-block"><sup>3</sup>ShanghaiTech
+                                University</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="author-block"><sup>4</sup>Czech Technical University in Prague</span>
+
+                        </div>
+
+                        <div class="column has-text-centered">
+                            <div class="publication-links">
+                                <!-- PDF Link. -->
+                                <span class="link-block">
+                                    <a href="https://drive.google.com/file/d/1Q7KgGbynzcIEyFJV1I17HgrYz6xrOwRJ/view?usp=sharing"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <svg class="svg-inline--fa fa-file-pdf fa-w-12" aria-hidden="true"
+                                                focusable="false" data-prefix="fas" data-icon="file-pdf" role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"
+                                                data-fa-i2svg="">
+                                                <path fill="currentColor"
+                                                    d="M181.9 256.1c-5-16-4.9-46.9-2-46.9 8.4 0 7.6 36.9 2 46.9zm-1.7 47.2c-7.7 20.2-17.3 43.3-28.4 62.7 18.3-7 39-17.2 62.9-21.9-12.7-9.6-24.9-23.4-34.5-40.8zM86.1 428.1c0 .8 13.2-5.4 34.9-40.2-6.7 6.3-29.1 24.5-34.9 40.2zM248 160h136v328c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V24C0 10.7 10.7 0 24 0h200v136c0 13.2 10.8 24 24 24zm-8 171.8c-20-12.2-33.3-29-42.7-53.8 4.5-18.5 11.6-46.6 6.2-64.2-4.7-29.4-42.4-26.5-47.8-6.8-5 18.3-.4 44.1 8.1 77-11.6 27.6-28.7 64.6-40.8 85.8-.1 0-.1.1-.2.1-27.1 13.9-73.6 44.5-54.5 68 5.6 6.9 16 10 21.5 10 17.9 0 35.7-18 61.1-61.8 25.8-8.5 54.1-19.1 79-23.2 21.7 11.8 47.1 19.5 64 19.5 29.2 0 31.2-32 19.7-43.4-13.9-13.6-54.3-9.7-73.6-7.2zM377 105L279 7c-4.5-4.5-10.6-7-17-7h-6v128h128v-6.1c0-6.3-2.5-12.4-7-16.9zm-74.1 255.3c4.1-2.7-2.5-11.9-42.8-9 37.1 15.8 42.8 9 42.8 9z">
+                                                </path>
+                                            </svg><!-- <i class="fas fa-file-pdf"></i> Font Awesome fontawesome.com -->
+                                        </span>
+                                        <span>Paper</span>
+                                    </a>
+                                </span>
+
+                                <span class="link-block">
+                                    <a href="https://arxiv.org/pdf/2311.16493.pdf"
+                                        class="external-link button is-normal is-rounded is-dark">
+                                        <span class="icon">
+                                            <i class="ai ai-arxiv"></i>
+                                        </span>
+                                        <span>arXiv</span>
+                                    </a>
+                                </span>
+
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://github.com/autonomousvision/mip-splatting"
+                                        class="external-link button is-normal is-rounded is-dark disabled">
+                                        <span class="icon">
+                                            <svg class="svg-inline--fa fa-github fa-w-16" aria-hidden="true"
+                                                focusable="false" data-prefix="fab" data-icon="github" role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
+                                                data-fa-i2svg="">
+                                                <path fill="currentColor"
+                                                    d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z">
+                                                </path>
+                                            </svg><!-- <i class="fab fa-github"></i> Font Awesome fontawesome.com -->
+                                        </span>
+                                        <span>Code</span>
+                                    </a>
+                                </span>
+
+                                <!-- Code Link. -->
+                                <span class="link-block">
+                                    <a href="https://niujinshuchong.github.io/mip-splatting-demo/"
+                                        class="external-link button is-normal is-rounded is-dark disabled">
+                                        <span class="icon">
+                                            <svg class="svg-inline--fa fa-dribbble fa-w-16" aria-hidden="true"
+                                                focusable="false" data-prefix="fab" data-icon="dribbble" role="img"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                                data-fa-i2svg="">
+                                                <path fill="currentColor"
+                                                    d="M256 8C119.252 8 8 119.252 8 256s111.252 248 248 248 248-111.252 248-248S392.748 8 256 8zm163.97 114.366c29.503 36.046 47.369 81.957 47.835 131.955-6.984-1.477-77.018-15.682-147.502-6.818-5.752-14.041-11.181-26.393-18.617-41.614 78.321-31.977 113.818-77.482 118.284-83.523zM396.421 97.87c-3.81 5.427-35.697 48.286-111.021 76.519-34.712-63.776-73.185-116.168-79.04-124.008 67.176-16.193 137.966 1.27 190.061 47.489zm-230.48-33.25c5.585 7.659 43.438 60.116 78.537 122.509-99.087 26.313-186.36 25.934-195.834 25.809C62.38 147.205 106.678 92.573 165.941 64.62zM44.17 256.323c0-2.166.043-4.322.108-6.473 9.268.19 111.92 1.513 217.706-30.146 6.064 11.868 11.857 23.915 17.174 35.949-76.599 21.575-146.194 83.527-180.531 142.306C64.794 360.405 44.17 310.73 44.17 256.323zm81.807 167.113c22.127-45.233 82.178-103.622 167.579-132.756 29.74 77.283 42.039 142.053 45.189 160.638-68.112 29.013-150.015 21.053-212.768-27.882zm248.38 8.489c-2.171-12.886-13.446-74.897-41.152-151.033 66.38-10.626 124.7 6.768 131.947 9.055-9.442 58.941-43.273 109.844-90.795 141.978z">
+                                                </path>
+                                            </svg><!-- <i class="fab fa-dribbble"></i> Font Awesome fontawesome.com -->
+                                        </span>
+                                        <span>Viewer</span>
+                                    </a>
+                                </span>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero teaser">
+        <div class="container is-max-desktop">
+            <div class="hero-body">
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-full-width">
+
+                        <video class="video" width="100%" id="xyalias6" loop="" playsinline="" autoplay="" muted=""
+                            src="resources/bicycle_3dgs_vs_ours.mp4" onplay="resizeAndPlay(this)"
+                            style="height: 0px;"></video>
+                        <canvas height="540" class="videoMerge" id="xyalias6Merge" width="960"></canvas>
+
+                        <h2 class="subtitle has-text-centered" style="margin-top: 15px">
+                            TL;DR: We introduce a 3D smoothing filter and a 2D Mip filter for 3D Gaussian Splatting
+                            (3DGS),
+                            eliminating multiple artifacts and achieving alias-free renderings.
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Reconstructions</h2>
+
+        <div class="embed-responsive embed-responsive-16by9">
+
+          <iframe style="clip-path: inset(1px 1px)" src="https://sketchfab.com/playlists/embed?collection=abee3cc1a7a7436c804f2bd3aadc2acd" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true" width="100%" height="100%" frameborder="0"></iframe>
+        </div>
+        
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+-->
+
+    <section class="section">
+        <div class="container is-max-desktop">
+            <!-- Abstract. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3" style="margin-top: -30px">Abstract</h2>
+                    <div class="content has-text-justified">
+                        <p>
+                            Recently, 3D Gaussian Splatting (3DGS) has demonstrated impressive novel view synthesis
+                            results, reaching
+                            high fidelity and efficiency.
+                            However, strong artifacts can be observed when changing the sampling rate, e.g., by changing
+                            focal length
+                            or camera distance.
+                            We find that the source for this phenomenon can be attributed to the lack of 3D frequency
+                            constraints and
+                            the usage of a 2D dilation filter.
+                            To address this problem, we introduce a 3D smoothing filter which constrains the size of the
+                            3D Gaussian
+                            primitives based on the maximal sampling frequency induced by the input views, eliminating
+                            high frequency
+                            artifacts when zooming in.
+                            Moreover, replacing 2D dilation with a 2D Mip filter, which simulates a 2D box filter,
+                            effectively
+                            mitigates aliasing and dilation issues.
+                            Our comprehensive evaluation, including scenarios such as training on single-scale images
+                            and testing on
+                            multiple scales, validates the effectiveness of our approach.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--/ Abstract. -->
+
+        </div>
+    </section>
+
+
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+
+            <!-- Method. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-full-width">
+                    <h2 class="title is-3" style="margin-top: -20px">Motivation</h2>
+
+                    <img src="./PVD_files/teaser.png" class="center">
+                    <div class="content has-text-justified">
+                        <p style="margin-top: 30px">
+                            <b>3D Gaussian Splatting</b> renders images by representing
+                            <b><span style="color: #0a0ae7">3D Objects</span></b> as <b>Gaussians</b> which are
+                            projected onto the
+                            image plane followed by <b><span style="color: #e70a0a">2D Dilation</span></b> in screen
+                            space as shown in
+                            (a).
+                            The method's intrinsic shrinkage bias leads to degenerate 3D Gaussians exceed the sampling
+                            limit as
+                            illustrated by the δ function in (b) while rendering similarly to 2D due to the dilation
+                            operation.
+                            However, when changing the sampling rate (via the focal length or camera distance), we
+                            observe strong
+                            dilation effects (c) and high frequency artifacts (d).
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            <!--/ Animation. -->
+
+            <!-- Paper video. -->
+            <div class="columns is-centered has-text-centered">
+                <div class="column is-four-fifths">
+                    <h2 class="title is-3">Video</h2>
+                    <div class="publication-video">
+                        <iframe src="./PVD_files/D389imzYO04.html" frameborder="0"
+                            allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </div>
+            <!--/ Paper video. -->
+
+        </div>
+    </section>
+
+
+    <section class="section">
+        <div class="container is-max-desktop">
+
+            <!-- Results. -->
+            <div class="columns is-centered ">
+                <div class="column is-full-width">
+                    <h2 class="title is-3 has-text-centered" style="margin-top: -30px">Results</h2>
+
+                    <h3 class="title is-4">Comparison wtih 3DGS</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            3DGS produces dilation and erosion artifacts due to the use of dilation.
+                            It produces erosion effects when zooming in or moving the camera closer.
+                            This is because the dilated 2D Gaussians become smaller in screen space, rendering object
+                            structures
+                            thinner than they actually appear.
+                            Conversely, screen space dilation produces dilation artifacts when zooming out or moving
+                            away from the
+                            scene.
+                            In this case, dilated 2D Gaussian become bigger in screen space, rendering object structures
+                            thicker than
+                            they actually appear.
+                            In contrast, our method is free of such artifacts by introducing a 3D smoothing filter and a
+                            2D Mip
+                            filter.
+                        </p>
+                    </div>
+
+                    <div class="content has-text-centered">
+                        <video class="video" width="100%" id="xyalias1" loop="" playsinline="" autoplay="" muted=""
+                            src="resources/ship_3dgs_vs_ours.mp4" onplay="resizeAndPlay(this)"
+                            style="height: 0px;"></video>
+                        <canvas height="800" class="videoMerge" id="xyalias1Merge" width="800"></canvas>
+                    </div>
+
+
+                    <h3 class="title is-4">Comparison wtih 3DGS + EWA</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            Replacing the 2D dilation of 3DGS with an EWA (elliptical weighted average) filter, denoted
+                            as 3DGS + EWA,
+                            reduces the dilation and erosion artifacts.
+                            However, it produces high-frequency artifacts when zooming in, while our method is free of
+                            such artifacts,
+                            as shown in the following comparisons.
+                        </p>
+                    </div>
+
+                    <!-- 
+        <div class="content has-text-centered">
+          <video class="video" width="100%" id="xyalias2" loop playsinline autoplay muted src="resources/materials_3dgs_ewa_vs_ours.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+          <canvas height=0 class="videoMerge" id="xyalias2Merge"></canvas>
+        </div>
+        -->
+
+                    <div class="content has-text-centered">
+                        <video class="video" width="100%" id="xyalias9" loop="" playsinline="" autoplay="" muted=""
+                            src="resources/bonsai_3dgs_ewa_vs_ours.mp4" onplay="resizeAndPlay(this)"
+                            style="height: 0px;"></video>
+                        <canvas height="540" class="videoMerge" id="xyalias9Merge" width="960"></canvas>
+                    </div>
+
+                    <div class="content has-text-justified">
+                        <p>
+                            Here, we show more comparisons with 3DGS + EWA. Both models are trained with downsampled
+                            images with
+                            factor 8 and render at higher-resolution.
+                            GT (Training resolution) is the image we used for training but bilinearly upsampled to
+                            higher-resolution
+                            for reference and GT (8x resolution) is the real GT image we used for evaluation.
+                        </p>
+                    </div>
+
+                    <div class="container">
+                        <ul class="nav nav-tabs nav-fill nav-justified" id="object-scale-recon">
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="objectSceneEvent(0)">bicycle</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" onclick="objectSceneEvent(1)">bonsai</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="objectSceneEvent(2)">counter</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="objectSceneEvent(3)">flowers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="objectSceneEvent(4)">garden</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="objectSceneEvent(5)">kitchen</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="objectSceneEvent(6)">stump</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="objectSceneEvent(7)">treehill</a>
+                            </li>
+                        </ul>
+                        <div class="b-dics b-dics--tp-bottom"
+                            style="width: 1000px; font-weight: 600; height: 600px; opacity: 1;">
+
+
+
+
+                            <div class="b-dics__section" data-function="b-dics__section" style="flex: 0 0 250px;">
+                                <div class="b-dics__image-container">
+                                    <p class="b-dics__text">3DGS+EWA</p><img
+                                        src="./PVD_files/bonsai_12_3dgs.jpg" alt="3DGS+EWA"
+                                        class="b-dics__image" style="left: 0px;">
+                                </div>
+                                <div class="b-dics__slider" style="left: 250px;"></div>
+                            </div>
+                            <div class="b-dics__section" data-function="b-dics__section" style="flex: 0 0 250px;">
+                                <div class="b-dics__image-container">
+                                    <p class="b-dics__text">Mip-Splatting (ours)</p><img
+                                        src="./PVD_files/bonsai_12_ours.jpg" alt="Mip-Splatting (ours)"
+                                        class="b-dics__image" style="left: -250px;">
+                                </div>
+                                <div class="b-dics__slider" style="left: 500px;"></div>
+                            </div>
+                            <div class="b-dics__section" data-function="b-dics__section" style="flex: 0 0 250px;">
+                                <div class="b-dics__image-container">
+                                    <p class="b-dics__text">GT (Training resolution)</p><img
+                                        src="./PVD_files/bonsai_12_upgt.jpg" alt="GT (Training resolution)"
+                                        class="b-dics__image" style="left: -500px;">
+                                </div>
+                                <div class="b-dics__slider" style="left: 750px;"></div>
+                            </div>
+                            <div class="b-dics__section" data-function="b-dics__section" style="flex: 0 0 250px;">
+                                <div class="b-dics__image-container">
+                                    <p class="b-dics__text">GT (8x resolution)</p><img
+                                        src="./PVD_files/bonsai_12_gt.jpg" alt="GT (8x resolution)"
+                                        class="b-dics__image" style="left: -750px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <h3 class="title is-4">Effectiveness of 2D Mip Filter</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            Our 2D Mip filter simulates a 2D box filter in physical imaging process. It approximates
+                            exactly 1 pixel
+                            in screen space, thus effectively reducing aliasing artifacts.
+                            As shown in the following video, removing the 2D Mip filter results in aliasing artifacts
+                            when zooming
+                            out.
+                        </p>
+                    </div>
+
+                    <div class="content has-text-centered">
+                        <video class="video" width="100%" id="xyalias3" loop="" playsinline="" autoplay="" muted=""
+                            src="resources/chair_ours_no2d_vs_ours.mp4" onplay="resizeAndPlay(this)"
+                            style="height: 0px;"></video>
+                        <canvas height="800" class="videoMerge" id="xyalias3Merge" width="800"></canvas>
+                    </div>
+
+                    <h3 class="title is-4">Effectiveness of 3D Smoothing Filter</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            The 3D smoothing filter constrains the size of the 3D Gaussian primitives based on the
+                            maximal sampling
+                            frequency induced by the training views, eliminating high frequency artifacts when zooming
+                            in.
+                            In the following comparisons, we train the models with downsampled images and render high
+                            resolution
+                            images to simulate zoom-in effects. Excluding the 3D smoothing filter results in
+                            high-frequency artifacts.
+                            Note that both models are trained with downsampled images with factor 8 and render at
+                            higher-resolution.
+                            GT (Training resolution) is the image we used for training but bilinearly upsampled to
+                            higher-resolution
+                            for reference and GT (8x resolution) is the real GT image we used for evaluation.
+                        </p>
+                    </div>
+
+                    <!-- 
+        <div class="content has-text-centered">
+          <video class="video" width="100%" id="xyalias5" loop playsinline autoplay muted src="./resources/drums_ours_no3d_vs_ours.mp4" onplay="resizeAndPlay(this)" style="height: 0px;"></video>
+          <canvas height=0 class="videoMerge" id="xyalias5Merge"></canvas>
+        </div> 
+        -->
+
+
+                    <div class="container">
+                        <ul class="nav nav-tabs nav-fill nav-justified" id="ablation-3d-filter">
+                            <li class="nav-item">
+                                <a class="nav-link active" onclick="ablation3DEvent(0)">bicycle 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="ablation3DEvent(1)">bicycle 2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="ablation3DEvent(2)">bicycle 3</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="ablation3DEvent(3)">garden 1</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="ablation3DEvent(4)">garden 2</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" onclick="ablation3DEvent(5)">treehill</a>
+                            </li>
+                        </ul>
+                        <div class="b-dics b-dics--tp-bottom"
+                            style="width: 1000px; font-weight: 600; height: 600px; opacity: 1;">
+
+
+
+
+
+                            <div class="b-dics__section" data-function="b-dics__section" style="flex: 0 0 250px;">
+                                <div class="b-dics__image-container">
+                                    <p class="b-dics__text">Ours w/o 3D filter</p><img
+                                        src="./PVD_files/bicycle_0_no3d.jpg" alt="Ours w/o 3D filter"
+                                        class="b-dics__image" style="left: 0px;">
+                                </div>
+                                <div class="b-dics__slider" style="left: 250px;"></div>
+                            </div>
+                            <div class="b-dics__section" data-function="b-dics__section" style="flex: 0 0 250px;">
+                                <div class="b-dics__image-container">
+                                    <p class="b-dics__text">Mip-Splatting (ours)</p><img
+                                        src="./PVD_files/bicycle_0_ours.jpg" alt="Mip-Splatting (ours)"
+                                        class="b-dics__image" style="left: -250px;">
+                                </div>
+                                <div class="b-dics__slider" style="left: 500px;"></div>
+                            </div>
+                            <div class="b-dics__section" data-function="b-dics__section" style="flex: 0 0 250px;">
+                                <div class="b-dics__image-container">
+                                    <p class="b-dics__text">GT (Training resolution)</p><img
+                                        src="./PVD_files/bicycle_0_upgt.jpg" alt="GT (Training resolution)"
+                                        class="b-dics__image" style="left: -500px;">
+                                </div>
+                                <div class="b-dics__slider" style="left: 750px;"></div>
+                            </div>
+                            <div class="b-dics__section" data-function="b-dics__section" style="flex: 0 0 250px;">
+                                <div class="b-dics__image-container">
+                                    <p class="b-dics__text">GT (8x resolution)</p><img
+                                        src="./PVD_files/bicycle_0_gt.jpg" alt="GT (8x resolution)"
+                                        class="b-dics__image" style="left: -750px;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <br><br>
+
+                    <h3 class="title is-4">Real-Time Interactive Viewer</h3>
+                    <div class="content has-text-justified">
+                        <p>
+                            Click the image to use the real-time interactive viewer. Please open the viewer with Chrome
+                            or Firefox.
+                            For more results, please check our <a
+                                href="https://niujinshuchong.github.io/mip-splatting-demo/">online
+                                viewer</a>.
+                        </p>
+                    </div>
+
+                    <div class="content-row">
+                        <div class="demo-scene-panel" onclick="openDemo(&#39;bicycle&#39;)">
+                            <img src="./PVD_files/bicycle.png" class="demo-scene-panel-image">
+                            <span class="small-title">Bicycle</span>
+                        </div>
+
+                        <div class="demo-scene-panel" onclick="openDemo(&#39;garden&#39;)">
+                            <img src="./PVD_files/garden.png" class="demo-scene-panel-image">
+                            <span class="small-title">Garden</span>
+                        </div>
+                        <div class="demo-scene-panel" onclick="openDemo(&#39;stump&#39;)">
+                            <img src="./PVD_files/stump.png" class="demo-scene-panel-image">
+                            <span class="small-title">Stump</span>
+                        </div>
+                        <div class="demo-scene-panel" onclick="openDemo(&#39;kitchen&#39;)">
+                            <img src="./PVD_files/kitchen.png" class="demo-scene-panel-image">
+                            <span class="small-title">Kitchen</span>
+                        </div>
+
+                    </div>
+
+                    <div class="content-row">
+                        <div class="demo-scene-panel" onclick="openDemo(&#39;chair&#39;)">
+                            <img src="./PVD_files/chair.png" class="demo-scene-panel-image">
+                            <span class="small-title">Chair</span>
+                        </div>
+                        <div class="demo-scene-panel" onclick="openDemo(&#39;ficus&#39;)">
+                            <img src="./PVD_files/ficus.png" class="demo-scene-panel-image">
+                            <span class="small-title">Ficus</span>
+                        </div>
+                        <div class="demo-scene-panel" onclick="openDemo(&#39;lego&#39;)">
+                            <img src="./PVD_files/lego.png" class="demo-scene-panel-image">
+                            <span class="small-title">Lego</span>
+                        </div>
+                        <div class="demo-scene-panel" onclick="openDemo(&#39;ship&#39;)">
+                            <img src="./PVD_files/ship.png" class="demo-scene-panel-image">
+                            <span class="small-title">Ship</span>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="BibTeX">
+        <div class="container is-max-desktop content">
+            <h2 class="title">BibTeX</h2>
+            <pre><code>@article{Yu2023MipSplatting,
+  author    = {Yu, Zehao and Chen, Anpei and Huang, Binbin and Sattler, Torsten and Geiger, Andreas},
+  title     = {Mip-Splatting: Alias-free 3D Gaussian Splatting},
+  journal   = {Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year      = {2024},
+}</code></pre>
+        </div>
+    </section>
+
+    <section class="section" id="Acknowledgements">
+        <div class="container is-max-desktop content">
+            <h2 class="title">Acknowledgements</h2>
+            ZY, AC and AG are supported by the ERC Starting Grant LEGO-3D (850533) and DFG EXC number 2064/1 - project
+            number
+            390727645.
+            TS is supported by a Czech Science Foundation (GACR) EXPRO grant (UNI-3D, grant no. 23-07973X).
+            We also thank Christian Reiser for insightful discussions during the preparation of the draft.
+        </div>
+    </section>
+
+    <section class="section" id="References">
+        <div class="container is-max-desktop content">
+
+            <h3 class="title is-4">References</h3>
+            <div class="content has-text-justified">
+                <ul>
+                    <li>
+                        <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" target="_blank">3D Gaussian
+                            Splatting
+                            for Real-Time Radiance Field Rendering</a>
+                    </li>
+                    <li>
+                        <a href="https://www.cs.umd.edu/~zwicker/publications/EWASplatting-TVCG02.pdf"
+                            target="_blank">EWA
+                            Splatting</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+            </div>
+            <div class="columns is-centered">
+                <div class="column is-8">
+                    <div class="content">
+                        <p>
+                            This website is licensed under a <a rel="license"
+                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                                Commons Attribution-ShareAlike 4.0 International License</a>.
+                            This webpage template is from <a
+                                href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+                            We sincerely thank <a href="https://keunhong.com/">Keunhong Park</a> for developing and
+                            open-sourcing this
+                            template.
+                            The video comparison with sliding bar is from <a
+                                href="https://dorverbin.github.io/refnerf/">Ref-NeRF</a>.
+                            The image comparison with sliding bar is from <a
+                                href="https://research.nvidia.com/labs/dir/neuralangelo/">Neuralangelo</a>.
+                        </p>
+                    </div>
+                </div>
+                <p></p>
+            </div>
+        </div>
+    </footer>
+
+
+
+</body>
+
+</html>
